@@ -8,21 +8,22 @@ public class ArrayAssignment {
 		Scanner scanner;
 		scanner = new Scanner(System.in);
 		
-		try {
 			for (int row = 0; row < array.length; row++) { //배열의 행을 array.lenght만큼
 				for (int column = 0; column < array[row].length; column++) { //배열의 열을 array의 각 행.length만큼
-					array[row][column] = scanner.nextInt(); //정수로 입력 받는다.
+					try {
+						array[row][column] = scanner.nextInt(); //정수로 입력 받는다.
+					}
+					catch (InputMismatchException e) { //예외처리 1.정수가 아닌 수를 입력받는 경우
+						System.out.println("정수만 입력해야 합니다." + (row + 1) + "번째 줄부터 다시 입력하세요.");
+						scanner.nextLine(); //에러가 발생한 줄의 버퍼를 비워준다.
+						column = -1; //에러가 발생한 각 줄의 첫번째 원소부터 입력받기 위해 column을 -1로 초기화한 후 이어서 for문(column)을 실행시킨다.
+					}
+					catch (NoSuchElementException e) { //예외처리 2.배열의 원소의 개수가 16개보다 적은 경우
+						System.out.println("입력 개수가 부족합니다. 종료합니다.");
+						System.exit(1); //비정상 종료 
+					}
 				}
 			}
-		}
-		catch (InputMismatchException e) { //예외처리 1.정수가 아닌 수를 입력받는 경우
-			System.out.println("정수만 입력하세요.");
-			System.exit(1); //프로세스 종료
-		}
-		catch (NoSuchElementException e) { //예외처리 2.배열의 원소의 개수가 16개보다 적은 경우
-			System.out.println("입력 개수가 부족합니다.");
-			System.exit(1); //프로세스 종료
-		}
 		scanner.close();
 	}
 	
@@ -57,6 +58,3 @@ public class ArrayAssignment {
 		printArray(src);
 	}
 }
-
-
-
