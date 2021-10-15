@@ -13,7 +13,7 @@ class TV {
 	
 	public void show() {
 		System.out.println(name + "에서 만든 " + year + "년형 " + size + "인치 TV");
-	}y7
+	}
 	
 }
 
