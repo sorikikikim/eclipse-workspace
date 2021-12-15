@@ -1,0 +1,9 @@
+sori level3 9500점
+김소리 level2 5500점
+hi level1 6000점
+aaaa level3 0점
+dkdk level3 500점
+aaavd level2 -1000점
+report1 level1 2500점
+report2 level2 4500점
+report3 level3 6500점
